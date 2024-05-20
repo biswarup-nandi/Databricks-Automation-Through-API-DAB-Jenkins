@@ -1,0 +1,35 @@
+# The main job for poc1.
+resources:
+  jobs:
+    dab_automation_new_workspace_creation_job.yml:
+      name: dab_automation_new_workspace_creation_job
+
+      # schedule:
+      #   # Run every day at 8:37 AM
+      #   quartz_cron_expression: '* * * ? * *'
+      #   timezone_id: Asia/Kolkata
+
+      email_notifications:
+        on_failure:
+          - biswarup.nandi@outlook.com
+
+      tasks:
+        - task_key: existing_notebook_task
+          job_cluster_key: job_cluster
+          notebook_task:
+            notebook_path: /Workspace/Users/biswarup.nandi@outlook.com/DBX_CLI_AUTOMATION/new_workspace_creation_script
+
+      parameters:
+        - name: Root_S3_Bucket_for_Workspace
+          default: "new-databricks-development-ws-bkt-767397898349"
+        - name: Workspace_Name
+          default: "new-databricks-development-ws-767397898349"
+
+      job_clusters:
+        - job_cluster_key: job_cluster
+          new_cluster:
+            spark_version: 13.3.x-scala2.12
+            node_type_id: i3.xlarge
+            autoscale:
+                min_workers: 1
+                max_workers: 2
