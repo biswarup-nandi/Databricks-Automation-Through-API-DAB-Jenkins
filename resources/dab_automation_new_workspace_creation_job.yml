@@ -14,7 +14,7 @@ resources:
           - biswarup.nandi@outlook.com
 
       tasks:
-        - task_key: existing_notebook_task
+        - task_key: new_workspace_creation
           job_cluster_key: job_cluster
           notebook_task:
             notebook_path: /Workspace/Users/biswarup.nandi@outlook.com/DBX_CLI_AUTOMATION/new_workspace_creation_script
