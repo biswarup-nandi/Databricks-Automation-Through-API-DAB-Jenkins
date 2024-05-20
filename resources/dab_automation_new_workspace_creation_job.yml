@@ -1,7 +1,7 @@
 # The main job for poc1.
 resources:
   jobs:
-    dab_automation_new_workspace_creation_job.yml:
+    dab_automation_new_workspace_creation_job:
       name: dab_automation_new_workspace_creation_job
 
       # schedule:
